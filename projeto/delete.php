@@ -11,7 +11,7 @@ if (isset($_SESSION['usuario'])) {
             $sql = "DELETE FROM users WHERE nome = '$idUsuario'";
             if ($conn->query($sql) === TRUE) {
                 session_destroy();
-                header('index.php');
+                header('Location: index.php');
                 exit();
             } else {
                 echo 'Erro ao excluir a conta: ' . $conn->error;
@@ -23,7 +23,7 @@ if (isset($_SESSION['usuario'])) {
         echo 'Acesso inválido.';
     }
 } else {
-    header('index.php');
+    header('Location: index.php');
     exit();
 }
 $conn->close();
